@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Lab 0</title>
+    <script src="main.js"></script>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <label>Text</label>
+    <input type=text id="text" oninput="disableButton()">
+    <button onclick="emote()" id="emote">Emote!</button>
+    <label>Size: </label>
+    <input type=range id="size" min="16" max="200" oninput="fontChange(this.value)">
+    <div id="emojis"></div>
+</body>
+
+</html>
