@@ -5,6 +5,15 @@ function emote() {
 
     const emojiDiv = document.getElementById('emojis');
     if (textField.includes(":)")) {
+        // How about a function like this:
+        // function makeEmoji(emoji) { 
+        //     const newSpan = document.createElement("span");
+        //     emojiDiv.appendChild(newSpan);
+        //     newSpan.innerHTML = emoji;   
+        // }
+        // Then call it like this:
+        // makeEmoji("☺️");
+        // Save yourself some typing!
         const newSpan = document.createElement('span');
         emojiDiv.appendChild(newSpan);
         newSpan.innerHTML = "☺️";
