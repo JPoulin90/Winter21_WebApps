@@ -57,4 +57,3 @@ function disableButton() {
         document.getElementById('emote').disabled = false;
     }
 }
-
