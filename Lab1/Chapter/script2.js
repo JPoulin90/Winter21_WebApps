@@ -17,7 +17,7 @@ function populateInfo() {
         let hiddenInputs = document.querySelectorAll("input[type=hidden]");
         queryData = queryData.substring(1, queryData.length);
         queryArray = queryData.split("&");
-        for (const el of queryArray) {
+        for (let i = 0; i < queryArray.length; i++) {
             hiddenInputs[i].value = queryArray[i].substring(queryArray[i].lastIndexOf("=") + 1);
         }
     }
@@ -25,9 +25,12 @@ function populateInfo() {
 
 function createCookies() {
     let formFields = document.querySelectorAll("input[type=hidden],input[type = radio], textarea");
-    
-    for (const el of formFields) {
-        Cookies.set('name', 'value', { expires: 7, path: '' });
+    let expiresDate = new Date();
+    expiresDate.setDate(expiresDate.getDate() + 7);
+    for (let i = 0; i < formFields.length; i++) {
+        let currentValue = decodeURIComponent(formFields[i].value);
+        currentValue = currentValue.replace(/\+/g, " ");
+        document.cookie = formFields[i].name + "=" + currentValue + "; expires=" + expiresDate.toUTCString();
     }
 }
 function handleSubmit(evt) {

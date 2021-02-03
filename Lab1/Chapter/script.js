@@ -10,9 +10,12 @@
 "use strict";
 
 function clearCookies() {
-    const cookieArray = Cookies.get();
-    for (const el of cookieArray) {
-        Cookies.remove(el);
+    let cookieString = document.cookie;
+    let cookieArray = cookieString.split("; ");
+    let expiresDate = new Date();
+    expiresDate.setDate(expiresDate.getDate() - 7);
+    for (let i = 0; i < cookieArray.length; i++) {
+        document.cookie = cookieArray[i] + "; expires=" + expiresDate.toUTCString();
     }
 }
 

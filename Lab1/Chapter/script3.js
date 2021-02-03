@@ -31,11 +31,11 @@
 
 function parseData(){
     let formData = document.cookie;
-    const formArray = [];
-    let list = document.querySelector("div.results ul");
+    let formArray = [];
+    const list = document.querySelector("div.results ul");
     formArray = formData.split("; ");
-    for (const el of formArray){
-        let newItem = document.createElement("li");
+    for (let i = 0; i < formArray.length; i++){
+        const newItem = document.createElement("li");
         newItem.innerHTML = formArray[i];
         list.appendChild(newItem);
     }
