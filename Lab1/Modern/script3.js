@@ -36,5 +36,6 @@ function parseData(){
         li.innerHTML = name + " = " + value; 
         list.appendChild(li); 
     } 
+}
 
 window.onload = parseData;
