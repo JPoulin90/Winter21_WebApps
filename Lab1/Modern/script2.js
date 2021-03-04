@@ -12,13 +12,11 @@
 let queryArray = [];
 
 function populateInfo() {
-    if (location.search) {
-        let queryData = location.search;
-        let hiddenInputs = document.querySelectorAll("input[type=hidden]");
-        queryData = queryData.substring(1, queryData.length);
-        queryArray = queryData.split("&");
-        for (const el of queryArray) {
-            hiddenInputs[i].value = queryArray[i].substring(queryArray[i].lastIndexOf("=") + 1);
+    if ( location.search ) {
+        const params = new URLSearchParams(location.search);
+
+        for ( const [name, value] of params ) {
+            document.getElementsByName(name)[0].value = value;
         }
     }
 }
@@ -26,8 +24,10 @@ function populateInfo() {
 function createCookies() {
     let formFields = document.querySelectorAll("input[type=hidden],input[type = radio], textarea");
     
-    for (const el of formFields) {
-        Cookies.set('name', 'value', { expires: 7, path: '' });
+    for ( const field of formFields ) {
+        if ( field.type !== "radio" || (field.type === "radio" && field.checked)) {
+            Cookies.set(field.name, field.value, {expires: 7});
+        }
     }
 }
 function handleSubmit(evt) {
@@ -55,8 +55,8 @@ function setUpPage() {
 }
 
 if (window.addEventListener) {
-    window.addEventListener("load", populateInfo, false);
+    window.addEventListener("load", setUpPage, false);
 }
 else if (window.attachEvent) {
-    window.attachEvent("onload", populateInfo);
+    window.attachEvent("onload", setUpPage);
 }
