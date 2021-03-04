@@ -58,8 +58,8 @@ function setUpPage() {
 }
 
 if (window.addEventListener) {
-    window.addEventListener("load", populateInfo, false);
+    window.addEventListener("load", setUpPage, false);
 }
 else if (window.attachEvent) {
-    window.attachEvent("onload", populateInfo);
+    window.attachEvent("onload", setUpPage);
 }

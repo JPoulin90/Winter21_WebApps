@@ -40,3 +40,5 @@ function parseData(){
         list.appendChild(newItem);
     }
 }
+
+window.onload = parseData;

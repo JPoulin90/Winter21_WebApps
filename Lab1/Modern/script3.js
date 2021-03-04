@@ -30,13 +30,11 @@
 } */
 
 function parseData(){
-    let formData = document.cookie;
-    const formArray = [];
-    let list = document.querySelector("div.results ul");
-    formArray = formData.split("; ");
-    for (const el of formArray){
-        let newItem = document.createElement("li");
-        newItem.innerHTML = formArray[i];
-        list.appendChild(newItem);
-    }
-}
+    const list = document.querySelector("div.results ul"); 
+    for ( const [name, value] of Object.entries(Cookies.get()) ) { 
+        const li = document.createElement("li"); 
+        li.innerHTML = name + " = " + value; 
+        list.appendChild(li); 
+    } 
+
+window.onload = parseData;
