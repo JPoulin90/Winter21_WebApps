@@ -15,7 +15,7 @@
 }
 
 @media screen and (orientation: landscape){
-    .container{
+    #body{
         display: flex;
         flex-direction: row;
         height: auto;

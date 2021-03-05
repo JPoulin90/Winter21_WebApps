@@ -9,8 +9,8 @@ window.addEventListener("resize", resizeCanvas, false);
 function startStroke(event){
     document.addEventListener("pointermove", dragStroke, false);
     document.addEventListener("pointerup", endStroke, false);
-    let x = event.clientX;
-    let y = event.clientY;
+    let x = event.offsetX;
+    let y = event.offsetY;
     canvCont.lineWidth = 5;
     canvCont.strokeStyle = "#000000";
     canvCont.lineJoin = "round";
@@ -20,8 +20,8 @@ function startStroke(event){
 }
 
 function dragStroke(event){
-    let x = event.clientX;
-    let y = event.clientY;
+    let x = event.offsetX;
+    let y = event.offsetY;
     canvCont.lineTo(x,y);
     canvCont.stroke();
     canvCont.beginPath();
@@ -49,7 +49,7 @@ function initMap(){
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition((position)=>{
             const pos = {lat: position.coords.latitude, lng: position.coords.longitude};
-            map.setCenter(pos);
+            myMap.setCenter(pos);
         })
     }
 }
