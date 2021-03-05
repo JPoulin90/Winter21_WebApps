@@ -8,11 +8,11 @@
 </head>
 
 <body>
-    <label>Text</label>
+    <label for="text">Text</label>
     <input type=text id="text" oninput="disableButton()">
     <button onclick="emote()" id="emote">Emote!</button>
-    <label>Size: </label>
-    <input type=range id="size" min="16" max="200" oninput="fontChange(this.value)">
+    <label for="text">Size: </label>
+    <input type=range id="size" min="16" max="200" value="16" oninput="fontChange(this.value)">
     <div id="emojis"></div>
 </body>
 
