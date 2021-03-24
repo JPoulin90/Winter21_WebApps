@@ -28,7 +28,7 @@
         //  Add your solutions to the remaining questions in the indicated spots below
 
         // 2
-        window.addEventListener('load', onready);
+        $(document).read(onready);
 
         function onready() {
             
@@ -38,13 +38,13 @@
             
 
             // 4
-            const newDiv = document.createElement('div');
-            newDiv.textContent = "Hello world!";
-            const greeting = $('#greeting')[0];
-            greeting.appendChild(newDiv)
+            const newDiv = $('<div>');
+            newDiv.text("Hello world!");
+            const greeting = $('#greeting');
+            greeting.append(newDiv);
 
             // 5
-            $('#template').clone().removeAttr('id').click(() => {console.log("Clicked!")}).appendTo($('#target')[0]);
+            $('#template').clone().removeAttr('id').click(() => {console.log("Clicked!")}).appendTo($('#target'));
 
             // 6
             $(".box").first().removeClass('box').addClass('notabox');
